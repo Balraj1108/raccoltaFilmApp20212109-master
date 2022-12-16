@@ -28,7 +28,11 @@ export class LoginComponent implements OnInit {
   save(loginForm: NgForm): void{
     this.authService.login(loginForm.value)
     .pipe(takeUntil(this.destroy$))
-    .subscribe(res =>{this.route.navigate(["welcome"])})
+    .subscribe(res =>
+
+      {
+        this.authService.setUserLogged(res);
+        this.route.navigate(["welcome"])})
   }
 
 }

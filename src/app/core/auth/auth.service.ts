@@ -14,7 +14,7 @@ export class AuthService {
 
   login(loginForm: User): Observable<User>{
     //setta l'utente loggato
-    this.setUserLogged(loginForm);
+   // this.setUserLogged(loginForm);
     return of({username: loginForm.username, token: "45"});
     //return this.http.post<User>("login", JSON.stringify(loginForm))
 

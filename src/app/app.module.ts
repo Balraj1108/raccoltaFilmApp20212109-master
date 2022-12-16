@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 
 import { HttpClientModule } from '@angular/common/http';
 import { LayoutModule } from './core/layout/layout.module';
+import { SharedModule } from './shared/shared.module';
 
 
 @NgModule({
@@ -16,8 +17,9 @@ import { LayoutModule } from './core/layout/layout.module';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    LayoutModule
-  ],
+    LayoutModule,
+    SharedModule
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })

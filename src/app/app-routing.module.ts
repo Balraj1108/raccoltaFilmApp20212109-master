@@ -23,7 +23,8 @@ const routes: Routes = [
  // { path: 'film/create', component: FilmCreateComponent },
   //{ path: 'film/:id', component: FilmDetailComponent },
   { path: '', redirectTo: '/login', pathMatch: 'full' },
-  { path: '*', redirectTo: '/welcome', pathMatch: 'full' }
+  { path: '*', redirectTo: '/welcome', pathMatch: 'full' },
+  { path: 'welcome', redirectTo: '/welcome', pathMatch: 'full' }
 
 ];
 
