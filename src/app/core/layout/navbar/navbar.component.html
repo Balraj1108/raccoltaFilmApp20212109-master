@@ -34,7 +34,7 @@
             </ul>
         </div>
         <div class="col-md-3 text-end">
-            <p class="navbar-text">Utente: Pippo
+            <p class="navbar-text" (click)="logout">Utente: {{ (service.getUserLogged() | async)?.username  }}
                 <a href="">Logout</a>
             </p>
         </div>
