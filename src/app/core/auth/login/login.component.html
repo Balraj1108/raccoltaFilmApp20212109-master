@@ -31,11 +31,11 @@
                             </span>
                         </span>
                     </div>
-
+<!--pattern="(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&].{6,}"-->
                     <div class="col-md-6">
                         <label>Password<span class="text-danger">*</span></label>
                         <input type="password" class="form-control" placeholder="Inserire la password" 
-                        required pattern="(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&].{6,}" minlength="4"
+                        required  minlength="4"
                             id="password" name="password" [(ngModel)]="utente.password" #cognomeVar="ngModel"
                             [ngClass]="{'is-invalid': (cognomeVar.touched || cognomeVar.dirty) && !cognomeVar.valid }">
                         <span class="invalid-feedback">

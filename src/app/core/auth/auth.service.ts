@@ -1,6 +1,6 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable, of } from 'rxjs';
+import { BehaviorSubject, map, Observable, of, switchMap } from 'rxjs';
 import { User } from 'src/app/model/user';
 
 @Injectable({
@@ -12,11 +12,25 @@ export class AuthService {
 
   private userLoggedSubject$: BehaviorSubject<User | null> = new BehaviorSubject<User | null>(null);
 
+  private httpOptions = {
+    headers: new HttpHeaders({
+      'Content-Type': 'application/json'
+    })
+  }
+
+  private apiServer = 'http://localhost:8080/api/auth/login';
+
   login(loginForm: User): Observable<User>{
     //setta l'utente loggato
    // this.setUserLogged(loginForm);
-    return of({username: loginForm.username, token: "45"});
-    //return this.http.post<User>("login", JSON.stringify(loginForm))
+    //return of({username: loginForm.username, token: "" });
+    //return this.http.post<User>(this.apiServer, JSON.stringify(loginForm))
+    return this.http.post<{'jwt-token': string}>(this.apiServer, JSON .stringify(loginForm), this.httpOptions).pipe(
+      map(res => { 
+        return {username: loginForm.username, token: res['jwt-token'] }
+      })
+    );
+    // return this.http.post<User>("login", JSON .stringify(loginForm));
 
   }
 
