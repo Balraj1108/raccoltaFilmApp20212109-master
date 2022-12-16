@@ -11,6 +11,7 @@ const routes: Routes = [
   {
     path: 'regista',
     loadChildren: () => import('./features/regista/regista.module').then(m => m.RegistaModule),
+    canActivate: [AuthGuard]
   },
   {
     path: 'film',
