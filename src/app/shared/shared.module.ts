@@ -1,18 +1,21 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { IsUserLoggedDirective } from './directives/is-user-logged.directive';
+import { DecodificaSessoPipe } from './pipes/decodifica-sesso.pipe';
 
 
 
 @NgModule({
   declarations: [
-    IsUserLoggedDirective
+    IsUserLoggedDirective,
+    DecodificaSessoPipe
   ],
   imports: [
     CommonModule
   ],
   exports:[
-    IsUserLoggedDirective
+    IsUserLoggedDirective,
+    DecodificaSessoPipe
   ]
 })
 export class SharedModule { }
