@@ -19,6 +19,7 @@ export class AuthService {
   }
 
   private apiServer = 'http://localhost:8080/api/auth/login';
+  private apiServerForRoles = 'http://localhost:8080/api/utente/userInfo';
 
   login(loginForm: User): Observable<User>{
     //setta l'utente loggato
@@ -32,6 +33,10 @@ export class AuthService {
     );
     // return this.http.post<User>("login", JSON .stringify(loginForm));
 
+  }
+
+  roles(): Observable<{ roles: string[] }> {
+    return this.http.get<{ roles: string[] }>(this.apiServerForRoles);
   }
 
   setUserLogged(user: User | null){
